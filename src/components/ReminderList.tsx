@@ -3,9 +3,10 @@ import Reminder from "../models/reminder";
 // need interface for the props
 interface ReminderListProps {
   items: Reminder[];
+  onRemoveReminder: (id: number) => void;
 }
 
-function ReminderList({ items }: ReminderListProps) {
+function ReminderList({ items, onRemoveReminder }: ReminderListProps) {
   return (
     <div className="pt-2 text-white">
       <table className="w-full bg-[rgb(255,255,255,0.2)] border-collapse rounded-md overflow-hidden border-4">
@@ -20,7 +21,10 @@ function ReminderList({ items }: ReminderListProps) {
             <tr key={item.id} className="border">
               <td className="p-2 font-semibold border">{item.title}</td>
               <td className="p-2 border">
-                <button className="p-2 font-semibold bg-red-400 rounded-md">
+                <button
+                  onClick={() => onRemoveReminder(item.id)}
+                  className="p-2 font-semibold bg-red-400 rounded-md"
+                >
                   Delete
                 </button>
               </td>

@@ -4,6 +4,7 @@ import ReminderList from "./components/ReminderList";
 import logo from "./logo.svg";
 import Reminder from "./models/reminder";
 import reminderService from "./services/reminder";
+import NewReminder from "./components/NewReminder";
 
 function App() {
   const [reminders, setReminders] = useState<Reminder[]>([]);
@@ -17,27 +18,15 @@ function App() {
     setReminders(res);
   }
 
-  const api = () => {
-    console.log(reminders);
-  };
+  function removeReminder(id: number) {
+    setReminders(reminders.filter((reminder) => reminder.id !== id));
+  }
 
   return (
-    <div className="grid items-center justify-center h-screen grid-rows-3 p-10 bg-indigo-400 App">
-      <img
-        src={logo}
-        className="bg-red-300 shadow-xl App-logo w-72 rounded-xl"
-        alt="logo"
-      />
-      <div className="grid gap-12 pt-12">
-        <h1 className="font-bold text-white text-7xl">Hello!</h1>
-        <ReminderList items={reminders} />
-        <button
-          onClick={api}
-          className="h-16 mx-auto text-4xl font-bold text-white bg-teal-500 rounded-md shadow-xl w-44"
-        >
-          +
-        </button>
-      </div>
+    <div className="grid items-center justify-center h-screen grid-rows-4 p-10 text-center bg-indigo-400">
+      <h1 className="font-bold text-white text-7xl">Hello!</h1>
+      <NewReminder />
+      <ReminderList items={reminders} onRemoveReminder={removeReminder} />
     </div>
   );
 }
