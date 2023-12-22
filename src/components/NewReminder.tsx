@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 
+interface NewReminderProps {
+  onAddReminder: (title: string) => void;
+}
 // Added JSX.Element to avoid errors
-function NewReminder(): JSX.Element {
+function NewReminder({ onAddReminder }: NewReminderProps): JSX.Element {
   const [title, setTitle] = useState("");
 
+  function submitForm(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!title) return;
+
+    onAddReminder(title);
+    setTitle("");
+  }
+
   return (
-    <form className="flex flex-col gap-2">
+    <form onSubmit={submitForm} className="flex flex-col gap-2">
       <label className="text-xl font-semibold text-white" htmlFor="title">
         Title
       </label>
