@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import ReminderList from "./components/ReminderList";
 import logo from "./logo.svg";
 import Reminder from "./models/reminder";
+import reminderService from "./services/reminder";
 
 function App() {
-  const [reminders, setReminders] = useState<Reminder[]>([
-    { id: 1, title: "Just Do It" },
-  ]);
-  const test = () => {
-    setReminders([...reminders, { id: 2, title: "Just Do 2" }]);
-  };
+  const [reminders, setReminders] = useState<Reminder[]>([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const res = await reminderService.getReminders();
+    setReminders(res);
+  }
 
   const api = () => {
-    console.log(reminder);
+    console.log(reminders);
   };
 
   return (
