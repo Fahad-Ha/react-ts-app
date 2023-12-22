@@ -8,7 +8,7 @@ class ReminderService {
 
   async getReminders() {
     // await because it return a promise
-    const response = await this.http.get<Reminder[]>("/todos");
+    const response = await this.http.get<Reminder[]>("/todos?_limit=3");
     return response.data;
   }
 

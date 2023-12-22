@@ -33,9 +33,9 @@ function App() {
         <ReminderList items={reminders} />
         <button
           onClick={api}
-          className="h-16 mx-auto text-4xl font-semibold text-white bg-teal-500 rounded-md shadow-xl w-44"
+          className="h-16 mx-auto text-4xl font-bold text-white bg-teal-500 rounded-md shadow-xl w-44"
         >
-          Test
+          +
         </button>
       </div>
     </div>
