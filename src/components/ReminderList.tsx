@@ -7,7 +7,7 @@ interface ReminderListProps {
 
 function ReminderList({ items }: ReminderListProps) {
   return (
-    <div className="pt-2">
+    <div className="pt-2 text-white">
       <table className="w-full bg-[rgb(255,255,255,0.2)] border-collapse rounded-md overflow-hidden border-4">
         <thead>
           <tr>
@@ -18,9 +18,11 @@ function ReminderList({ items }: ReminderListProps) {
         <tbody>
           {items.map((item) => (
             <tr key={item.id} className="border">
-              <td className="p-2 border">{item.title}</td>
+              <td className="p-2 font-semibold border">{item.title}</td>
               <td className="p-2 border">
-                <button className="p-1 bg-red-300 rounded-md">Delete</button>
+                <button className="p-2 font-semibold bg-red-400 rounded-md">
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
