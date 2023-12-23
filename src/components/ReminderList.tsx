@@ -9,7 +9,7 @@ interface ReminderListProps {
 function ReminderList({ items, onRemoveReminder }: ReminderListProps) {
   return (
     <div className="pt-2 text-white">
-      <table className="w-96 bg-[rgb(255,255,255,0.2)] border-collapse rounded-md overflow-hidden border-4">
+      <table className="overflow-hidden border-4 border-collapse rounded-md w-96 bg-white/20">
         <thead>
           <tr>
             <th className="p-2 border">Title</th>

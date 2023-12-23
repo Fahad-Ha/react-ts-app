@@ -27,10 +27,13 @@ function App() {
   }
 
   return (
-    <div className="grid items-center justify-center h-screen grid-rows-4 p-10 text-center bg-indigo-400">
+    <div className="relative grid items-center justify-center h-screen grid-rows-4 p-10 text-center bg-indigo-400">
       <h1 className="font-bold text-white text-7xl">Hello!</h1>
-      <NewReminder onAddReminder={addReminder} />
-      <ReminderList items={reminders} onRemoveReminder={removeReminder} />
+      <div className="absolute w-20 h-20 bg-red-400 left-[52%] top-80"></div>
+      <div className="p-10 mt-auto rounded-md bg-white/10 backdrop-blur-md">
+        <NewReminder onAddReminder={addReminder} />
+        <ReminderList items={reminders} onRemoveReminder={removeReminder} />
+      </div>
     </div>
   );
 }

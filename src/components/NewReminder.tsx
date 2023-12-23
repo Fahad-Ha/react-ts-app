@@ -22,7 +22,7 @@ function NewReminder({ onAddReminder }: NewReminderProps): JSX.Element {
         Title
       </label>
       <input
-        className="h-8 px-2 bg-[rgb(255,255,255,0.6)] rounded-md"
+        className="h-8 px-2 rounded-md bg-white/60"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         id="title"
